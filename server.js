@@ -1,5 +1,5 @@
 const express = require('express');
-const { database } = require('./db/db.json');
+const { notes } = require('./db/db.json');
 const PORT = process.env.PORT || 3001;
 const app = express();
 const fs = require('fs');
@@ -13,8 +13,10 @@ app.use(express.urlencoded({ extended: true }));
 // parse incoming JSON data
 app.use(express.json());
 
-
-
+//establish a get route
+app.get('/api/notes', (req, res) => {
+    res.json(notes);
+  });
 
 
 
