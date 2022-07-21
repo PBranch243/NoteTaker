@@ -13,10 +13,15 @@ app.use(express.urlencoded({ extended: true }));
 // parse incoming JSON data
 app.use(express.json());
 
-//establish a get route
+//establish api route
 app.get('/api/notes', (req, res) => {
     res.json(notes);
   });
+
+  app.post('/api/notes', (req, res) => {
+    res.json(req.body);
+  });
+//establish route for html requests
 
 
 
